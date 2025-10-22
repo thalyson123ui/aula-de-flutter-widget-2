@@ -8,6 +8,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int totalClicks = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +19,14 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('Olá, mundo!'), SizedBox(height: 10), Text('OLA')],
+            children: [
+              Text('Olá, mundo!'),
+              SizedBox(height: 10),
+              Text(
+                'TOTAL DE CLIQUES $totalClicks',
+                style: TextStyle(color: Colors.greenAccent),
+              ),
+            ],
           ),
         ),
       ),
