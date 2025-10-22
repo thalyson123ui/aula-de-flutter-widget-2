@@ -8,23 +8,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int totalClicks = 0;
+  int contador = 0;
+
+  void incrementarContador() {
+    setState(() {
+      contador++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xFF00FF00), // Verde em hexadecimal
-        appBar: AppBar(title: Text('Meu App')),
+        appBar: AppBar(title: Text('Contador de Cliques')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Olá, mundo!'),
-              SizedBox(height: 10),
+              Text('Você clicou:', style: TextStyle(fontSize: 24)),
               Text(
-                'TOTAL DE CLIQUES $totalClicks',
-                style: TextStyle(color: Colors.greenAccent),
+                '$contador vezes',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: incrementarContador,
+                child: Text('Clique aqui'),
               ),
             ],
           ),
